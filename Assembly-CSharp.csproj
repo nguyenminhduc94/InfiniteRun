@@ -46,7 +46,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\CharactersController\RobotBoyRun.cs" />
      <Compile Include="Assets\Scripts\ScencesController\MenuController.cs" />
+     <Compile Include="Assets\Scripts\SpawnerManager\GroundScript.cs" />
+     <Compile Include="Assets\Scripts\SpawnerManager\SpawnerGround.cs" />
  <Reference Include="Facebook.Unity.Settings">
  <HintPath>/Volumes/Data/Unity2D/LearningUnity2D/InfiniteRun/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
  </Reference>
