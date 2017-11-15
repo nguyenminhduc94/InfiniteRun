@@ -15,5 +15,6 @@ public class GroundScript : MonoBehaviour {
 		Vector3 vc3 = transform.position;
 		vc3.x -= forceX * Time.deltaTime;
 		transform.position = vc3;
+
 	}
 }
