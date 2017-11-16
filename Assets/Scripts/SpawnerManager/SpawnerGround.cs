@@ -17,7 +17,6 @@ public class SpawnerGround : MonoBehaviour {
 	IEnumerator Clone(){
 		yield return new WaitForSeconds (1.5f);
 		Vector3 vc3 = transform.position;
-		vc3.y = Random.Range (-3f,2f);
 		transform.position = vc3;
 		Instantiate (ground, transform.position, Quaternion.identity);
 		StartCoroutine (Clone());

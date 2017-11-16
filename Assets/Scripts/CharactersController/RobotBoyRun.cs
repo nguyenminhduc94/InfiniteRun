@@ -35,7 +35,7 @@ public class RobotBoyRun : MonoBehaviour {
 	}
 
 	void _characterJump(){
-		body.velocity = new Vector2 (0f, forceY);
+		body.velocity = new Vector2 (0,forceY);
 		isJump = false;
 	}
 

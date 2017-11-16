@@ -1,9 +1,10 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/SpawnerManager/GroundScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/CameraFollow/FollowCamera.cs">
     <Files>
-      <File FileName="Assets/Scripts/SpawnerManager/SpawnerGround.cs" Line="22" Column="3" />
-      <File FileName="Assets/Scripts/SpawnerManager/GroundScript.cs" Line="11" Column="3" />
+      <File FileName="Assets/Scripts/SpawnerManager/GroundScript.cs" Line="18" Column="36" />
+      <File FileName="Assets/Scripts/CharactersController/RobotBoyRun.cs" Line="38" Column="39" />
+      <File FileName="Assets/Scripts/CameraFollow/FollowCamera.cs" Line="16" Column="56" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
