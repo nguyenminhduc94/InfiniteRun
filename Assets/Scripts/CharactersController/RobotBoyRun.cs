@@ -6,11 +6,12 @@ public class RobotBoyRun : MonoBehaviour {
 
 	public float forceY;
 	public Animator anim;
-	private bool isAlive,isJump;
+	private bool isAlive,isJump,isRoll;
 	public bool isGround;
 	public Transform startPos,colBot;
 	public static RobotBoyRun instance;
 	public int score;
+	public float pos;
 
 	[SerializeField]
 	private Rigidbody2D body;
@@ -24,7 +25,7 @@ public class RobotBoyRun : MonoBehaviour {
 	}
 
 	void Start () {
-		
+		pos = transform.position.y;
 	}
 	
 	// Update is called once per frame
@@ -33,10 +34,11 @@ public class RobotBoyRun : MonoBehaviour {
 			isGround = Physics2D.Linecast (startPos.position,colBot.position,1 << LayerMask.NameToLayer("layerground"));
 			if (isJump)
 				_characterJump ();
-			if (!isGround)
-				anim.Play ("Jump");
-			else
+			if (!isGround) {
+				anim.Play ("Roll");
+			} else {
 				anim.Play ("Run");
+			}
 		}
 	}
 
@@ -45,13 +47,7 @@ public class RobotBoyRun : MonoBehaviour {
 	}
 
 	void _characterJump(){
-		body.velocity = new Vector2 (2f,forceY);
+		body.velocity = new Vector2 (2f, forceY);
 		isJump = false;
 	}
-	/*
-	void OnCollisionEnter2D(Collision2D target){
-		if (target.gameObject.tag == "Ground")
-			anim.Play ("Run");
-	}
-	*/
 }
