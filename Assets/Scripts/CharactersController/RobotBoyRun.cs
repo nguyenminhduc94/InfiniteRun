@@ -19,13 +19,13 @@ public class RobotBoyRun : MonoBehaviour {
 
 	void Awake(){
 		isAlive = true;
+		isRoll = false;
 		anim = GetComponent<Animator> ();
 		if (instance == null)
 			instance = this;
 	}
 
 	void Start () {
-		pos = transform.position.y;
 	}
 	
 	// Update is called once per frame
@@ -35,15 +35,21 @@ public class RobotBoyRun : MonoBehaviour {
 			if (isJump)
 				_characterJump ();
 			if (!isGround) {
-				anim.Play ("Roll");
+				if (isRoll) {
+					anim.Play ("Roll");
+				} else {
+					anim.Play ("Jump");
+				}
 			} else {
 				anim.Play ("Run");
+				isRoll = true;
 			}
 		}
 	}
 
 	public void pressJump(){
 		isJump = true;
+		isRoll = false;
 	}
 
 	void _characterJump(){
