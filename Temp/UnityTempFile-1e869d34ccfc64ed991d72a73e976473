@@ -89,7 +89,9 @@
 -define:ENABLE_NATIVE_ARRAY_CHECKS
 -define:UNITY_TEAM_LICENSE
 'Assets/Scripts/CameraFollow/FollowCamera.cs'
+'Assets/Scripts/CharactersController/CollisionScript.cs'
 'Assets/Scripts/CharactersController/RobotBoyRun.cs'
+'Assets/Scripts/DestroyController/DestroyScript.cs'
 'Assets/Scripts/ScencesController/MenuController.cs'
 'Assets/Scripts/SpawnerManager/GroundScript.cs'
 'Assets/Scripts/SpawnerManager/ScoreScript.cs'

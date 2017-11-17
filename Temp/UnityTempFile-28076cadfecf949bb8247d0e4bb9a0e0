@@ -91,6 +91,8 @@
 'Assets/Scripts/CameraFollow/FollowCamera.cs'
 'Assets/Scripts/CharactersController/CollisionScript.cs'
 'Assets/Scripts/CharactersController/RobotBoyRun.cs'
+'Assets/Scripts/DestroyController/DestroyScript.cs'
+'Assets/Scripts/ScencesController/GameplayController.cs'
 'Assets/Scripts/ScencesController/MenuController.cs'
 'Assets/Scripts/SpawnerManager/GroundScript.cs'
 'Assets/Scripts/SpawnerManager/ScoreScript.cs'

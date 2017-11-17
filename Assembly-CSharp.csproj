@@ -47,8 +47,9 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\CameraFollow\FollowCamera.cs" />
-     <Compile Include="Assets\Scripts\CharactersController\CollisionScript.cs" />
      <Compile Include="Assets\Scripts\CharactersController\RobotBoyRun.cs" />
+     <Compile Include="Assets\Scripts\DestroyController\DestroyScript.cs" />
+     <Compile Include="Assets\Scripts\ScencesController\GameplayController.cs" />
      <Compile Include="Assets\Scripts\ScencesController\MenuController.cs" />
      <Compile Include="Assets\Scripts\SpawnerManager\GroundScript.cs" />
      <Compile Include="Assets\Scripts\SpawnerManager\ScoreScript.cs" />

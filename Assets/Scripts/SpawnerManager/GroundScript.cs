@@ -18,10 +18,4 @@ public class GroundScript : MonoBehaviour {
 		vc3.x -= forceX * Time.deltaTime;
 		transform.position = vc3;
 	}
-
-	void OnCollisionEnter2D(Collision2D target){
-		if(target.gameObject.tag == "DestroyGround"){
-			DestroyObject (gameObject);
-		}
-	}
 }
