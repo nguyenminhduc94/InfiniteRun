@@ -5,8 +5,11 @@ using UnityEngine;
 public class RobotBoyRun : MonoBehaviour {
 
 	public float forceY;
-	private Animator anim;
-	private bool isAlive,isJump;
+	public Animator anim;
+	private bool isAlive;
+	public bool isJump,isGround;
+	public Transform startPos,colBot;
+	public static RobotBoyRun instance;
 	[SerializeField]
 	private Rigidbody2D body;
 
@@ -14,6 +17,8 @@ public class RobotBoyRun : MonoBehaviour {
 	void Awake(){
 		isAlive = true;
 		anim = GetComponent<Animator> ();
+		if (instance == null)
+			instance = this;
 	}
 
 	void Start () {
@@ -22,10 +27,12 @@ public class RobotBoyRun : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		if (isAlive) {
-			if (isJump) {
+		if (isAlive){
+			isGround = Physics2D.Linecast (startPos.position,colBot.position,1 << LayerMask.NameToLayer("layerground"));
+			if (isJump)
 				_characterJump ();
-			}
+			if (!isGround)
+				anim.Play ("Jump");
 		}
 	}
 
@@ -36,13 +43,12 @@ public class RobotBoyRun : MonoBehaviour {
 
 	void _characterJump(){
 		body.velocity = new Vector2 (1f,forceY);
-		//body.AddForce(new Vector2(1f,forceY));
 		isJump = false;
 	}
 
 	void OnCollisionEnter2D(Collision2D target){
 		if(target.gameObject.tag == "Ground"){
-			anim.Play("Run");
+			anim.Play ("Run");
 		}
 	}
 }
