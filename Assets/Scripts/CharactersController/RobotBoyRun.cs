@@ -5,44 +5,55 @@ using UnityEngine;
 public class RobotBoyRun : MonoBehaviour {
 
 	public float forceY;
-	private Animator anim;
-	private bool isAlive,isJump;
+	public Animator anim;
+	private bool isAlive,isJump,isRoll;
+	public bool isGround;
+	public Transform startPos,colBot;
+	public static RobotBoyRun instance;
+	public int score;
+	public float pos;
+
 	[SerializeField]
 	private Rigidbody2D body;
 
 
 	void Awake(){
 		isAlive = true;
+		isRoll = false;
 		anim = GetComponent<Animator> ();
+		if (instance == null)
+			instance = this;
 	}
 
 	void Start () {
-		
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		if (isAlive) {
-			if (isJump) {
+		if (isAlive){
+			isGround = Physics2D.Linecast (startPos.position,colBot.position,1 << LayerMask.NameToLayer("layerground"));
+			if (isJump)
 				_characterJump ();
+			if (!isGround) {
+				if (isRoll) {
+					anim.Play ("Roll");
+				} else {
+					anim.Play ("Jump");
+				}
+			} else {
+				anim.Play ("Run");
+				isRoll = true;
 			}
 		}
 	}
 
 	public void pressJump(){
 		isJump = true;
-		anim.Play ("Jump");
+		isRoll = false;
 	}
 
 	void _characterJump(){
-		body.velocity = new Vector2 (1f,forceY);
-		//body.AddForce(new Vector2(1f,forceY));
+		body.velocity = new Vector2 (2f, forceY);
 		isJump = false;
-	}
-
-	void OnCollisionEnter2D(Collision2D target){
-		if(target.gameObject.tag == "Ground"){
-			anim.Play("Run");
-		}
 	}
 }

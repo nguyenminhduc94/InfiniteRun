@@ -18,8 +18,9 @@ public class ScoreScript : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D target){
-		if(target.tag == "Player"){
+		if(target.tag == "Player" && RobotBoyRun.instance != null){
 			Destroy (gameObject);
+			RobotBoyRun.instance.score++;
 		}
 	}
 }

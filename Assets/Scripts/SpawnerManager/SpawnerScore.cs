@@ -17,7 +17,7 @@ public class SpawnerScore : MonoBehaviour {
 	}
 
 	IEnumerator Clone(){
-		yield return new WaitForSeconds (1);
+		yield return new WaitForSeconds (1.5f);
 		Instantiate (score, transform.position, Quaternion.identity);
 		StartCoroutine (Clone());
 	}
