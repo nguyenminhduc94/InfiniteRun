@@ -19,7 +19,6 @@ public class RobotBoyRun : MonoBehaviour {
 
 	void Awake(){
 		isAlive = true;
-		isRoll = false;
 		anim = GetComponent<Animator> ();
 		if (instance == null)
 			instance = this;
@@ -30,20 +29,21 @@ public class RobotBoyRun : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+		Debug.DrawLine (startPos.position, colBot.position, Color.green);
 		if (isAlive){
 			isGround = Physics2D.Linecast (startPos.position,colBot.position,1 << LayerMask.NameToLayer("layerground"));
 			if (isJump)
 				_characterJump ();
-			if (!isGround) {
-				if (isRoll) {
-					anim.Play ("Roll");
+			else
+				if (!isGround) {
+					if (!isRoll)
+						anim.Play ("Roll");
+					else
+						anim.Play ("Jump");
 				} else {
-					anim.Play ("Jump");
+					anim.Play ("Run");
+					isRoll = true;
 				}
-			} else {
-				anim.Play ("Run");
-				isRoll = true;
-			}
 		}
 	}
 
@@ -51,9 +51,8 @@ public class RobotBoyRun : MonoBehaviour {
 		isJump = true;
 		isRoll = false;
 	}
-
 	void _characterJump(){
-		body.velocity = new Vector2 (2f, forceY);
+		body.velocity = new Vector2 (1f, forceY);
 		isJump = false;
 	}
 }
